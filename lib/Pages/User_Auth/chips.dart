@@ -87,8 +87,6 @@ class _chips_screenState extends State<chips_screen> {
                 color: Color(0xFF0672CB),
               ),
             ),
-
-
           ],
         ),
       ),
@@ -122,9 +120,8 @@ class _MultiSelectChipState extends State<MultiSelectChip> {
             // shadowColor: Colors.black45,
           selectedColor: Color(0xFF0672CB),
           backgroundColor: Colors.white,
-          shape: StadiumBorder( side: BorderSide()),
-          label: Text(item,
-            style: TextStyle(fontSize: 15),),
+          shape: StadiumBorder(side: BorderSide()),
+
           selected: selectedChoices.contains(item),
           onSelected: (selected) {
             setState(() {
@@ -135,6 +132,8 @@ class _MultiSelectChipState extends State<MultiSelectChip> {
             },
             );
           },
+          label: Text(item,
+            style: TextStyle(fontSize: 15, color: selectedChoices.contains(item) ? Colors.white : Colors.black,),),
         ),
       ));
     });

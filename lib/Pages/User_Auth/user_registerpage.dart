@@ -54,7 +54,7 @@ class _User_registerState extends State<User_register> {
                           width: 20,
                         ),
                         Expanded(
-                          child: Text("First Name", style: TextStyle(color: Colors.black, fontSize: 16),),
+                          child: Text("Last Name", style: TextStyle(color: Colors.black, fontSize: 16),),
                         ),
                       ],
                     ),

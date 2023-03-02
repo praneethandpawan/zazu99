@@ -58,6 +58,7 @@ dev_dependencies:
   google_maps: ^6.2.0
   geocoding: ^2.0.5
   flutter_phosphor_icons: ^0.0.1+6
+  flutter_image_slider: ^0.0.2
 
 
 
@@ -99,6 +100,7 @@ flutter:
     - assets/citiesdis.png
     - assets/location.png
     - assets/picker.png
+    - assets/mini_ad1.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

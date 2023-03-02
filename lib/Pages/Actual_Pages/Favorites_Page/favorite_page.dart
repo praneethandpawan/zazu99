@@ -1,66 +1,16 @@
 import 'package:flutter/material.dart';
 
-class Search extends StatefulWidget {
+class favorites_page extends StatefulWidget {
   @override
-  _SearchState createState() => _SearchState();
+  _favorites_pageState createState() => _favorites_pageState();
 }
 
-class _SearchState extends State<Search> with AutomaticKeepAliveClientMixin<Search> {
+class _favorites_pageState extends State<favorites_page> with AutomaticKeepAliveClientMixin<favorites_page> {
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Container(
-            height: 200,
-            color: Colors.orange,
-          ),
-          Container(
-            height: 200,
-            color: Colors.blue,
-          ),
-          Container(
-            height: 200,
-            color: Colors.red,
-          ),
-          Container(
-            height: 200,
-            color: Colors.white,
-          ),
-          Container(
-            height: 200,
-            color: Colors.yellow,
-          ),
-          Container(
-            height: 200,
-            color: Colors.grey,
-          ),Container(
-            height: 200,
-            color: Colors.blue,
-          ),Container(
-            height: 200,
-            color: Colors.pink,
-          ),
-          Container(
-            height: 200,
-            color: Colors.white,
-          ),Container(
-            height: 200,
-            color: Colors.orange,
-          ),
-          Container(
-            height: 200,
-            color: Colors.red,
-          ),Container(
-            height: 200,
-            color: Colors.black45,
-          ),
-
-
-
-        ],
-      ),
+    return Scaffold(
+      body: Center(child: Text("Favorites", style: TextStyle(color: Colors.red, fontSize: 40),),),
     );
   }
 

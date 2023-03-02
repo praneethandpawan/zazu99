@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
-
 class tttt extends StatefulWidget {
   @override
   _ttttState createState() => _ttttState();
@@ -16,16 +13,16 @@ class _ttttState extends State<tttt> {
   List<Widget> _appBarActions = [];
   late Color _appBarColor;
 
-  List<BottomNavigationBarItem> _navBarItems = [
+  final List<BottomNavigationBarItem> _navBarItems = [
     const BottomNavigationBarItem(
       icon: Icon(Icons.person),
       // label: Text('Page 1'),
     ),
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
       icon: Icon(Icons.alarm),
       // title: Text('Page 2'),
     ),
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
       icon: Icon(Icons.photo_library),
       // title: Text('Page 3'),
     ),
@@ -125,3 +122,5 @@ class _ttttState extends State<tttt> {
     );
   }
 }
+
+

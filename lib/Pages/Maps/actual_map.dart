@@ -187,28 +187,35 @@ class _mappageState extends State<mappage> {
                         width: MediaQuery.of(context).size.width - 40,
                         child: ListTile(
                           // leading: Image.asset("assets/picker.png", width: 25,),
-                          title:SizedBox(child: Text(location, style: TextStyle(fontSize: 18),)),
+                          title:SizedBox(
+
+                              child: Padding(
+                                  padding: EdgeInsets.only(left: 10, right:10, bottom: 10, top: 25),
+                                  child: Text(location, style: TextStyle(fontSize: 18),))),
                           dense: true,
                         ),
                       ),
                     ),
                     Spacer(),
-                    Container(
-                      height: 50,
-                      width: MediaQuery.of(context).size.width * 0.94,
-                      child: OutlinedButton(
-                        onPressed:
-                            () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => chips_screen()),
-                          );
-                        },
-                        child: Text('Your Current Location', style: TextStyle(color: Colors.white, fontSize: 19 ),),
-                      ),
-                      decoration:BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
-                        color: Color(0xFF0672CB),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 25),
+                      child: Container(
+                        height: 50,
+                        width: MediaQuery.of(context).size.width * 0.94,
+                        child: OutlinedButton(
+                          onPressed:
+                              () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => chips_screen()),
+                            );
+                          },
+                          child: Text('Confirm Location', style: TextStyle(color: Colors.white, fontSize: 19 ),),
+                        ),
+                        decoration:BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                          color: Color(0xFF0672CB),
+                        ),
                       ),
                     ),
 

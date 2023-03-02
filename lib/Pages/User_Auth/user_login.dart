@@ -125,6 +125,7 @@ class _user_loginState extends State<user_login> {
                 children: <Widget>[
                   Expanded(child: OutlinedButton(
                     onPressed: () {},child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
                           height: 40,
@@ -136,6 +137,7 @@ class _user_loginState extends State<user_login> {
                   SizedBox(width: 18,),
                   Expanded(child: OutlinedButton(
                     onPressed: () {},child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
                           height: 40,
@@ -144,7 +146,6 @@ class _user_loginState extends State<user_login> {
                         ),
                         SizedBox(width: 5,),
                         Text('Google', style: TextStyle(color: Colors.black54, fontSize: 15 ),)]),)),
-
                 ],
               ),
             ),
@@ -156,31 +157,31 @@ class _user_loginState extends State<user_login> {
                   onPressed: (){},
                   child: Text("Forgot Password?", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 17, fontWeight: FontWeight.w700, color: Color(0xFF0672CB)),)),
             ),
-            
-            Padding(
-              padding: EdgeInsets.all(20),
-              child: Container(
-                child: Row(
-                  children: [
-                    Text("Want to create new account?", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 9, fontWeight: FontWeight.w700, color: Colors.black54),),
-                    Container(
-                      child: TextButton(
-                          onPressed: (){
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => User_register()),
-                            );
-                          },
-                          child: Text("Sign Up", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 9, fontWeight: FontWeight.w700, color: Color(0xFF0672CB)),)),
-                    ),
-                  ],
-                ),
+            Align(
+              alignment: Alignment.center,
+            child: Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Want to create new account?", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black54),),
+                  Container(
+                    child: TextButton(
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => User_register()),
+                          );
+                        },
+                        child: Text("Sign Up", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 9, fontWeight: FontWeight.w700, color: Color(0xFF0672CB)),)),
+                  ),
+                ],
               ),
             ),
-
+            ),
 
           ],
         ),
+
       ),
     );
   }

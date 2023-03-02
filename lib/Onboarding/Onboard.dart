@@ -13,6 +13,7 @@ class ggg extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner:false,
       home: SplashScreen(),
     );
   }
@@ -29,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 4), () {
+    Timer(Duration(seconds: 3), () {
       Navigator.of(context)
           .pushReplacement(MaterialPageRoute(builder: (_) => TTT()));
     });
@@ -70,6 +71,7 @@ class _TTTState extends State<TTT> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
@@ -88,13 +90,12 @@ class _TTTState extends State<TTT> {
             // height: MediaQuery.of(context).size.height*0.4,
             child: Center(child: Text("Lorem ipsum dolor sit amet, consectetuer ")),
           ),
-          SizedBox(height: 25,),
+          SizedBox(height: 55,),
           Container(
             height: 50,
             width: MediaQuery.of(context).size.width * 0.94,
             child: OutlinedButton(
-              onPressed:
-                  () {
+              onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => User_Merchant_Select()),
@@ -176,7 +177,6 @@ class _User_Merchant_SelectState extends State<User_Merchant_Select> {
               ),
             ),
             SizedBox(height: 25,),
-
             // Flexible(
             //   child: Container(
             //     // color: Colors.blueGrey,

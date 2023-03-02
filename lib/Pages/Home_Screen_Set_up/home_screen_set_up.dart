@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
+import '../Actual_Pages/Account Page/account_page.dart';
+import '../Actual_Pages/Ads Screen/ads_screen.dart';
 import '../Actual_Pages/Favorites_Page/favorite_page.dart';
 import '../Actual_Pages/Home_Page/home.dart';
+import '../Actual_Pages/Notifications Screen/notifications_Screen.dart';
 
 class appbar_bottombar extends StatefulWidget {
 
@@ -28,10 +31,10 @@ class _appbar_bottombarState extends State<appbar_bottombar> {
 
     _pages = [
       Home(),
-      Search(),
-      Search(),
-      Search(),
-      Search(),
+      favorites_page(),
+      ads_screen(),
+      notifications_screen(),
+      account_screen(),
 
     ];
 
@@ -49,9 +52,7 @@ class _appbar_bottombarState extends State<appbar_bottombar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Save States in BottomNavigationBar'),
-      ),
+      
       body: PageView(
         controller: _pageController,
         //The following parameter is just to prevent

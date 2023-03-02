@@ -95,7 +95,7 @@ class _current_or_other_location_pageState extends State<current_or_other_locati
                       MaterialPageRoute(builder: (context) => Home()),
                     );
                   },
-                  child: Text('Some Other location', style: TextStyle(color: Colors.black, fontSize: 19 ),),
+                  child: Text('Some Other location', style: TextStyle(color: Colors.blue, fontSize: 19 ),),
                 ),
                 decoration:BoxDecoration(
                   border: Border.all(color:Color(0xFF0672CB)),
