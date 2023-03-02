@@ -52,7 +52,14 @@ class _chips_screenState extends State<chips_screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("chips_screen"),
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.blue),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+        title: FittedBox(
+            fit: BoxFit.cover,
+            child: Text("Choose Your Primary Services", style: TextStyle(color: Colors.black),)),
       ),
       body: SingleChildScrollView(
         child: Column(
