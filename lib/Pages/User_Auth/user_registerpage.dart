@@ -337,18 +337,19 @@ class _User_registerState extends State<User_register> {
 
 
 
-            Padding(
-              padding: EdgeInsets.all(20),
+            Align(
+              alignment: Alignment.center,
               child: Container(
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Already Having Account?", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 9, fontWeight: FontWeight.w700, color: Colors.black54),),
+                    Text("Already having account?", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black54),),
                     Container(
                       child: TextButton(
                           onPressed: (){
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => user_login()),
+                              MaterialPageRoute(builder: (context) => User_register()),
                             );
                           },
                           child: Text("Sign In", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 9, fontWeight: FontWeight.w700, color: Color(0xFF0672CB)),)),
