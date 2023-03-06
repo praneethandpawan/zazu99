@@ -15,25 +15,56 @@ class _current_or_other_location_pageState extends State<current_or_other_locati
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      // backgroundColor: Color(0xFFF5F5F5),
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
             children: [
-              AspectRatio(
-                aspectRatio: 15/8,
-                child:Container(
-                  child: Image.asset('assets/topcloud.png',fit:BoxFit.cover,),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15),
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: IconButton(
+                      icon: const Icon(Icons.arrow_back_ios_new_sharp, size: 20,),
+                      style: IconButton.styleFrom(
+                          backgroundColor: Colors.white),
+                      padding: EdgeInsets.fromLTRB(0, 0, 0, 3),
+                      onPressed: () => Navigator.of(context).pop(true),
+                    ),
+                    width: 46,
+                    height: 46,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(9.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          offset: Offset(0.0, 0.0),
+                          blurRadius: 10,
+                        ),
+                        BoxShadow(
+                            color: Colors.white
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
+              ),
+              Container(
+                // color: Colors.blueGrey,
+                // width: MediaQuery.of(context).size.width*5,
+                // height: MediaQuery.of(context).size.height*0.1,
+                child: Image.asset('assets/roundlogo3.png',fit:BoxFit.cover,),
               ),
               Padding(
                 padding: EdgeInsets.only(left:50,right: 50),
                 child: FittedBox(
                   fit: BoxFit.cover,
                   child: Container(
-                    margin: EdgeInsets.only(top: 70),
+                    margin: EdgeInsets.only(top: 45),
                     child: FittedBox(
                         fit: BoxFit.cover,
-                        child: Text("Hi Jhon, Nice to meet you!", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 21, fontWeight: FontWeight.w400, color: Colors.black),)),
+                        child: Text("Hi John, Nice to meet you!", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 21, fontWeight: FontWeight.w400, color: Colors.black),)),
                     // SizedBox(width: 8,),
                   ),
                 ),
@@ -53,14 +84,17 @@ class _current_or_other_location_pageState extends State<current_or_other_locati
 
               ),
 
-              FittedBox(
-                fit: BoxFit.cover,
-                child: Container(
-                  child: FittedBox(
-                      fit: BoxFit.cover,
-                      child: Image.asset("assets/citiesdis.png"),
-                  ),
+              Padding(
+                padding: EdgeInsets.only(left: 17, right: 17),
+                child: FittedBox(
+                  fit: BoxFit.cover,
+                  child: Container(
+                    child: FittedBox(
+                        fit: BoxFit.cover,
+                        child: Image.asset("assets/citiesdis.png"),
+                    ),
 
+                  ),
                 ),
               ),
 
@@ -92,7 +126,7 @@ class _current_or_other_location_pageState extends State<current_or_other_locati
                       () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Home()),
+                      MaterialPageRoute(builder: (context) => Home(selectedReportList: [],)),
                     );
                   },
                   child: Text('Some Other location', style: TextStyle(color: Colors.blue, fontSize: 19 ),),

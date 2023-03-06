@@ -125,35 +125,46 @@ class _mappageState extends State<mappage> {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Container(
+
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                   borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(40.0),
-                    topLeft: Radius.circular(40.0),
+                    topRight: Radius.circular(30.0),
+                    topLeft: Radius.circular(30.0),
                   ),
                 ),
+                height: MediaQuery.of(context).size.height*0.25,
+                width: MediaQuery.of(context).size.width*0.45,
                 child: Align(
                   alignment: Alignment.topCenter,
                   child: Container(
+                    height: 25,
                     decoration: BoxDecoration(
                         border: Border.all(
                           color: Colors.red,
                         ),
                         color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(8))
+                        borderRadius: BorderRadius.all(Radius.circular(7))
                     ),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.my_location, color: Colors.red,),
-                        FittedBox(
-                            fit: BoxFit.fitWidth,
-                            child: Text("Use Current Location",style: TextStyle(fontSize: 10),))
+                        Icon(Icons.my_location, color: Colors.red,size: 12,),
+                        SizedBox(width: 5,),
+                        Container(
+                            child: FittedBox(
+                              fit: BoxFit.fitWidth,
+                              child: Text("Use Current Location",
+                                // overflow: TextOverflow.ellipsis,
+                                style: TextStyle(color: Colors.red, fontSize: 12),
+                              ),
+                            ),
+                        ),
+                        SizedBox(width: 10),
                       ],
                     ),
                   ),
                 ),
-                height: MediaQuery.of(context).size.height*0.25,
-                width: MediaQuery.of(context).size.width*0.35,
               ),
             ),
           ),
@@ -186,9 +197,8 @@ class _mappageState extends State<mappage> {
                         padding: EdgeInsets.all(0),
                         width: MediaQuery.of(context).size.width - 40,
                         child: ListTile(
-                          // leading: Image.asset("assets/picker.png", width: 25,),
+                          leading: Image.asset("assets/picker.png", width: 17,),
                           title:SizedBox(
-
                               child: Padding(
                                   padding: EdgeInsets.only(left: 10, right:10, bottom: 10, top: 25),
                                   child: Text(location, style: TextStyle(fontSize: 18),))),
@@ -207,7 +217,7 @@ class _mappageState extends State<mappage> {
                               () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => chips_screen()),
+                              MaterialPageRoute(builder: (context) => ChipsScreen()),
                             );
                           },
                           child: Text('Confirm Location', style: TextStyle(color: Colors.white, fontSize: 19 ),),

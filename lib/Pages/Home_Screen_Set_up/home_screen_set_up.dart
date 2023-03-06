@@ -7,7 +7,8 @@ import '../Actual_Pages/Home_Page/home.dart';
 import '../Actual_Pages/Notifications Screen/notifications_Screen.dart';
 
 class appbar_bottombar extends StatefulWidget {
-
+  late List<String> selectedReportList;
+  appbar_bottombar({required this.selectedReportList});
   // appbar_bottombar({Key key, this.title}) : super(key: key);
 
   // final String title;
@@ -21,6 +22,7 @@ class _appbar_bottombarState extends State<appbar_bottombar> {
   late List<Widget> _pages;
   late PageController _pageController;
 
+
   
 
   @override
@@ -30,7 +32,7 @@ class _appbar_bottombarState extends State<appbar_bottombar> {
     _selectedPageIndex = 0;
 
     _pages = [
-      Home(),
+      Home(selectedReportList: [],),
       favorites_page(),
       ads_screen(),
       notifications_screen(),

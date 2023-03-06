@@ -5,6 +5,7 @@ import 'package:zazu99/Pages/User_Auth/user_login.dart';
 import 'chips.dart';
 
 
+
 class User_register extends StatefulWidget {
   const User_register({Key? key}) : super(key: key);
 
@@ -22,17 +23,51 @@ class _User_registerState extends State<User_register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           children: [
-            AspectRatio(
-              aspectRatio: 15/8,
-              child: Container(
-                // color: Colors.blueGrey,
-                // width: MediaQuery.of(context).size.width*5,
-                // height: MediaQuery.of(context).size.height*0.1,
-                child: Image.asset('assets/topcloud.png',fit:BoxFit.cover,),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15),
+
+                child: Container(
+                  alignment: Alignment.center,
+
+                  child: IconButton(
+                    icon: const Icon(Icons.arrow_back_ios_new_sharp, size: 20,),
+                    style: IconButton.styleFrom(
+                        backgroundColor: Colors.white),
+                    padding: EdgeInsets.fromLTRB(0, 0, 0, 3),
+                    onPressed: () => Navigator.of(context).pop(true),
+                  ),
+                  width: 46,
+                  height: 46,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(9.0),
+
+                    boxShadow: [
+
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        offset: Offset(0.0, 0.0),
+                        blurRadius: 10,
+                      ),
+                      BoxShadow(
+                          color: Colors.white
+                      ),
+                    ],
+                  ),
+                ),
               ),
+            ),
+
+            Container(
+              // color: Colors.blueGrey,
+              // width: MediaQuery.of(context).size.width*5,
+              // height: MediaQuery.of(context).size.height*0.1,
+              child: Image.asset('assets/roundlogo3.png',fit:BoxFit.cover,),
             ),
 
             Container(
@@ -44,11 +79,10 @@ class _User_registerState extends State<User_register> {
                 padding: const EdgeInsets.only(left: 18.0, bottom: 18.0, right: 18),
                 child: Column(
                   children: [
-
                     Row(
                       children: [
-                        Expanded(
-                          child: Text("First Name", style: TextStyle(color: Colors.black, fontSize: 16),),
+                          Expanded(
+                            child: Text("First Name", style: TextStyle(color: Colors.black, fontSize: 16),),
                         ),
                         const SizedBox(
                           width: 20,
@@ -90,15 +124,9 @@ class _User_registerState extends State<User_register> {
                         ),
                       ],
                     ),
-
-
-
-
-
                   ],
                 ),
               ),
-
             ),
 
             Padding(
@@ -111,7 +139,8 @@ class _User_registerState extends State<User_register> {
               padding: const EdgeInsets.only(left: 17.0, right: 17),
               child: IntlPhoneField(
                 decoration: InputDecoration(
-                  labelText: 'Enter your mobile number',
+                  hintText: "Enter Your Mobile Number",
+                  // labelText: 'Enter your mobile number',
                   border: OutlineInputBorder(
                     borderSide: BorderSide(),
                   ),
@@ -124,7 +153,6 @@ class _User_registerState extends State<User_register> {
                 },
               ),
             ),
-
 
             Padding(
                 padding: const EdgeInsets.only(left: 17.0),
@@ -174,7 +202,7 @@ class _User_registerState extends State<User_register> {
 
                 decoration: InputDecoration(
                   // contentPadding: EdgeInsets.symmetric(vertical: 2,),
-                    contentPadding: EdgeInsets.all(14),
+                    contentPadding: EdgeInsets.all(20),
                     suffixIcon: IconButton(
                       onPressed: () => updateStatus(),
                       icon: Icon(_isVisible ? Icons.visibility : Icons.visibility_off, color: Color(0xFF4874A5),),
@@ -188,7 +216,8 @@ class _User_registerState extends State<User_register> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5),
                       borderSide: BorderSide(color: Colors.grey),
-                    )),
+                    ),
+                ),
               ),
             ),
             const SizedBox(
@@ -220,7 +249,7 @@ class _User_registerState extends State<User_register> {
 
                 decoration: InputDecoration(
                   // contentPadding: EdgeInsets.symmetric(vertical: 2,),
-                    contentPadding: EdgeInsets.all(14),
+                    contentPadding: EdgeInsets.all(20),
                     suffixIcon: IconButton(
                       onPressed: () => updateStatus(),
                       icon: Icon(_isVisible ? Icons.visibility : Icons.visibility_off, color: Color(0xFF4874A5),),
@@ -242,7 +271,7 @@ class _User_registerState extends State<User_register> {
               height: 15,
             ),
             Padding(
-              padding: EdgeInsets.only(left:17),
+              padding: EdgeInsets.only(left:17,right: 17),
               child: Container(
                 height: 50,
                 width: MediaQuery.of(context).size.width * 0.94,
@@ -251,7 +280,7 @@ class _User_registerState extends State<User_register> {
                       () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => chips_screen()),
+                      MaterialPageRoute(builder: (context) => ChipsScreen()),
                     );
                   },
                   child: Text('Sign Up', style: TextStyle(color: Colors.white, fontSize: 19 ),),
@@ -262,6 +291,7 @@ class _User_registerState extends State<User_register> {
                 ),
               ),
             ),
+
 
 
             SizedBox(height: 30,),
@@ -277,7 +307,6 @@ class _User_registerState extends State<User_register> {
                           color: Colors.grey),
                       height: 2,
                       margin:  EdgeInsets.all(15),
-
                       // margin: CustomPaddings.horizontal(),
                     ),
                   ),
@@ -296,32 +325,39 @@ class _User_registerState extends State<User_register> {
                           color: Colors.grey),
                       height: 2,
                       margin:  EdgeInsets.all(15),
-
                       // margin: CustomPaddings.horizontal(),
                     ),
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 30,),
+            // SizedBox(height: 30,),
 
             ListTile(
               title: Row(
                 children: <Widget>[
-
-                  Expanded(child: OutlinedButton(
-                    onPressed: () {},child: Row(
-                      children: [
-                        Container(
-                          height: 40,
-                          width: 25,
-                          child: Image.asset("assets/glogo.png"),
+                  Expanded(
+                      child: OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                          side: BorderSide(color: Color(0xFF0672CB)),
                         ),
-                        SizedBox(width: 5,),
-                        Text('Google', style: TextStyle(color: Colors.black54, fontSize: 15 ),)]),)),
+                        onPressed: () {},child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: 40,
+                              width: 25,
+                              child: Image.asset("assets/glogo.png"),
+                            ),
+                            SizedBox(width: 5,),
+                            Text('GOOGLE', style: TextStyle(color:  Color(0xFF1F2937), fontSize: 12),)]),)),
                   SizedBox(width: 18,),
                   Expanded(child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      side: BorderSide(width: 1, color: Color(0xFF0672CB)),
+                    ),
                     onPressed: () {},child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
                           height: 40,
@@ -329,13 +365,19 @@ class _User_registerState extends State<User_register> {
                           child: Image.asset("assets/flogo.png"),
                         ),
                         SizedBox(width: 5,),
-                        Text('Google', style: TextStyle(color: Colors.black54, fontSize: 15 ),)]),)),
-
+                        Text('FACEBOOK', style: TextStyle(color:  Color(0xFF1F2937), fontSize: 12 ),)]),)),
                 ],
               ),
             ),
 
+            SizedBox(height: 30,),
 
+            Container(
+              child: TextButton(
+                  onPressed: (){},
+                  child: Text("Forgot Password?", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xFF0672CB)),)),
+            ),
+            SizedBox(height: 30,),
 
             Align(
               alignment: Alignment.center,
@@ -343,7 +385,7 @@ class _User_registerState extends State<User_register> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Already having account?", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black54),),
+                    Text("Already Have an account?", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 16, fontWeight: FontWeight.w700, color: Colors.black54),),
                     Container(
                       child: TextButton(
                           onPressed: (){
@@ -352,16 +394,16 @@ class _User_registerState extends State<User_register> {
                               MaterialPageRoute(builder: (context) => User_register()),
                             );
                           },
-                          child: Text("Sign In", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 9, fontWeight: FontWeight.w700, color: Color(0xFF0672CB)),)),
+                          child: Text("Sign In", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xFF0672CB)),)),
                     ),
                   ],
                 ),
               ),
             ),
-
           ],
         ),
       ),
     );
   }
 }
+

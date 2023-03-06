@@ -18,15 +18,52 @@ class _user_otp_enterState extends State<user_otp_enter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
             children: [
-              AspectRatio(
-                aspectRatio: 15/8,
-                child:Container(
-                  child: Image.asset('assets/topcloud.png',fit:BoxFit.cover,),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15),
+
+                  child: Container(
+                    alignment: Alignment.center,
+
+                    child: IconButton(
+                      icon: const Icon(Icons.arrow_back_ios_new_sharp, size: 20,),
+                      style: IconButton.styleFrom(
+                          backgroundColor: Colors.white),
+                      padding: EdgeInsets.fromLTRB(0, 0, 0, 3),
+                      onPressed: () => Navigator.of(context).pop(true),
+                    ),
+                    width: 46,
+                    height: 46,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(9.0),
+
+                      boxShadow: [
+
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          offset: Offset(0.0, 0.0),
+                          blurRadius: 10,
+                        ),
+                        BoxShadow(
+                            color: Colors.white
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ),
+              Container(
+                // color: Colors.blueGrey,
+                // width: MediaQuery.of(context).size.width*5,
+                // height: MediaQuery.of(context).size.height*0.1,
+                child: Image.asset('assets/roundlogo3.png',fit:BoxFit.cover,),
+              ),
+
               Container(
                 child: Text("LOGIN", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 25, fontWeight: FontWeight.w700, color: Color(0xFF0672CB)),),
               ),
@@ -81,8 +118,6 @@ class _user_otp_enterState extends State<user_otp_enter> {
                       defaultFieldBackgroundColor: Colors.white,
                       activeFieldBackgroundColor: Colors.white,
 
-
-
                       /// Background Color for active/focused Otp_Pin_Field
                     ),
                     maxLength: 6,
@@ -90,7 +125,7 @@ class _user_otp_enterState extends State<user_otp_enter> {
                     /// bool to show cursor in pin field or not
                     cursorColor: Colors.indigo,
                     /// to choose cursor color
-                    fieldWidth: 37,
+                    fieldWidth: 45,
                     middleChild: Column(
                       children: [
                         SizedBox(height: 30),
@@ -103,7 +138,7 @@ class _user_otp_enterState extends State<user_otp_enter> {
                         SizedBox(height: 10),
                         ElevatedButton(
                             onPressed: () => Navigator.push(context,
-                                MaterialPageRoute(builder: (context) => chips_screen())),
+                                MaterialPageRoute(builder: (context) => ChipsScreen())),
                             child: Text("Next Class")),
                         SizedBox(height: 30),
                       ],
@@ -125,23 +160,24 @@ class _user_otp_enterState extends State<user_otp_enter> {
               ),
 
               SizedBox(height: 25,),
-              Padding(
-                padding: EdgeInsets.only(left:50,),
-                child: Container(
-                  child: Row(
-                      children: [
-                        TextButton(
-                            onPressed: ()
-                            {
-
-                            },
-                            child: Text("Resend", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 19, fontWeight: FontWeight.w700, color: Color(0xFF0672CB)),)),
-                        SizedBox(width: 5,),
-                        Container(
-                          child: Text("OTP in 0:56", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 19, fontWeight: FontWeight.w700, color: Colors.black),),
-                        ),
-                      ]),
-                ),
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextButton(
+                          onPressed: ()
+                          {
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(builder: (context) => Home()),
+                            // );
+                          },
+                          child: Text("Resend", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 19, fontWeight: FontWeight.w700, color: Color(0xFF0672CB)),)),
+                      SizedBox(width: 5,),
+                      Container(
+                        child: Text("OTP in 0:56", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 19, fontWeight: FontWeight.w700, color: Colors.black),),
+                      ),
+                    ]),
               ),
               SizedBox(height: 25,),
               Container(
@@ -156,7 +192,7 @@ class _user_otp_enterState extends State<user_otp_enter> {
                       MaterialPageRoute(builder: (context) => current_or_other_location_page()),
                     );
                   },
-                  child: Text('Get Started', style: TextStyle(color: Colors.white, fontSize: 19 ),),
+                  child: Text('Login', style: TextStyle(color: Colors.white, fontSize: 19 ),),
                 ),
                 decoration:BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(5)),

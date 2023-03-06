@@ -4,6 +4,7 @@ import 'package:zazu99/Pages/User_Auth/user_otp_enter.dart';
 import 'package:zazu99/Pages/User_Auth/user_registerpage.dart';
 
 
+
 class user_login extends StatefulWidget {
   const user_login({Key? key}) : super(key: key);
 
@@ -12,28 +13,82 @@ class user_login extends StatefulWidget {
 }
 
 class _user_loginState extends State<user_login> {
+  bool isButtonActive = false;
+  late TextEditingController controller;
+
+  @override
+  void initState(){
+    super.initState();
+    controller= TextEditingController();
+
+    controller.addListener(() {
+      final isButtonActive = controller.text.isNotEmpty;
+      setState(()
+       => this.isButtonActive=isButtonActive
+      );
+    });
+  }
+
+  @override
+  void dispose(){
+    controller.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
-
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            AspectRatio(
-              aspectRatio: 15/8,
-              child: Container(
-                // color: Colors.blueGrey,
-                // width: MediaQuery.of(context).size.width*5,
-                // height: MediaQuery.of(context).size.height*0.1,
-                child: Image.asset('assets/topcloud.png',fit:BoxFit.cover,),
+
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: Container(
+                  alignment: Alignment.center,
+                  child: IconButton(
+                    icon: const Icon(Icons.arrow_back_ios_new_sharp, size: 20 ,),
+                    style: IconButton.styleFrom(
+                        backgroundColor: Colors.white),
+                    padding: EdgeInsets.fromLTRB(0, 0, 0, 3),
+                    onPressed: () => Navigator.of(context).pop(true),
+                  ),
+                  width: 46,
+                  height: 46,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(9.0),
+
+                    boxShadow: [
+
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        offset: Offset(0.0, 0.0),
+                        blurRadius: 10,
+                      ),
+                      BoxShadow(
+                          color: Colors.white
+                      ),
+                    ],
+                  ),
+                ),
               ),
+            ),
+            Container(
+              // color: Colors.blueGrey,
+              // width: MediaQuery.of(context).size.width*5,
+              // height: MediaQuery.of(context).size.height*0.1,
+              child: Image.asset('assets/roundlogo3.png',fit:BoxFit.cover,),
             ),
 
             Container(
               child: Text("LOGIN", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 25, fontWeight: FontWeight.w700, color: Color(0xFF0672CB)),),
             ),
-            SizedBox(height: 30,),
+
+            SizedBox(height: 30),
+
             Align(
               alignment: Alignment.topLeft,
               child: Padding(
@@ -43,11 +98,15 @@ class _user_loginState extends State<user_login> {
                 ),
               ),
             ),
+
             Padding(
-              padding: const EdgeInsets.all(17.0),
+              padding: const EdgeInsets.only(bottom: 1.0, right: 17, left: 17, top: 8),
               child: IntlPhoneField(
+                disableLengthCheck:false,
+                // showDropdownIcon:true,
+                // dropdownIconPosition:IconPosition.leading,
                 decoration: InputDecoration(
-                  labelText: 'Enter your mobile number',
+                  hintText: 'Enter your mobile number',
                   border: OutlineInputBorder(
                     borderSide: BorderSide(),
                   ),
@@ -58,26 +117,61 @@ class _user_loginState extends State<user_login> {
                 onCountryChanged: (country) {
                   print('Country changed to: ' + country.name);
                 },
+                controller:controller,
+
               ),
             ),
 
-            Container(
+
+
+            // Padding(
+            //   padding: const EdgeInsets.only(left: 17.0, right: 17.0),
+            //   child: Container(
+            //     height: 50,
+            //     width: MediaQuery.of(context).size.width * 0.94,
+            //     child: OutlinedButton(
+            //       onPressed: ()
+            //       {
+            //         Navigator.push(
+            //           context,
+            //           MaterialPageRoute(builder: (context) => user_otp_enter()),
+            //         );
+            //       },
+            //       child: Text('Login With OTP', style: TextStyle(color: Colors.white, fontSize: 19 ),),
+            //     ),
+            //     decoration:BoxDecoration(
+            //       borderRadius: BorderRadius.all(Radius.circular(5)),
+            //       color: Color(0xFF0672CB),
+            //     ),
+            //   ),
+            // ),
+
+
+
+            SizedBox(
               height: 50,
               width: MediaQuery.of(context).size.width * 0.94,
-              child: OutlinedButton(
-
-                onPressed:
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  onSurface: Color(0xFF0672CB),
+                  primary: Color(0xFF0672CB), // background
+                  onPrimary: Colors.white, // foreground
+                ),
+                onPressed: isButtonActive
+                ?(){
+                  setState(() {
+                     isButtonActive=false;
+                     controller.clear();
+                  });
+                } :
                     () {
-                  Navigator.push(
+                      isButtonActive=false;
+                      Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => user_otp_enter()),
                   );
                 },
                 child: Text('Login With OTP', style: TextStyle(color: Colors.white, fontSize: 19 ),),
-              ),
-              decoration:BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(5)),
-                color: Color(0xFF0672CB),
               ),
             ),
 
@@ -118,12 +212,14 @@ class _user_loginState extends State<user_login> {
                 ],
               ),
             ),
-            SizedBox(height: 30,),
-
             ListTile(
               title: Row(
                 children: <Widget>[
-                  Expanded(child: OutlinedButton(
+                  Expanded(
+                      child: OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                          side: BorderSide(color: Color(0xFF0672CB)),
+                        ),
                     onPressed: () {},child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -133,9 +229,12 @@ class _user_loginState extends State<user_login> {
                           child: Image.asset("assets/glogo.png"),
                         ),
                         SizedBox(width: 5,),
-                        Text('Google', style: TextStyle(color: Colors.black54, fontSize: 15 ),)]),)),
+                        Text('GOOGLE', style: TextStyle(color:  Color(0xFF1F2937), fontSize: 12),)]),)),
                   SizedBox(width: 18,),
                   Expanded(child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      side: BorderSide(width: 1, color: Color(0xFF0672CB)),
+                    ),
                     onPressed: () {},child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -145,7 +244,7 @@ class _user_loginState extends State<user_login> {
                           child: Image.asset("assets/flogo.png"),
                         ),
                         SizedBox(width: 5,),
-                        Text('Google', style: TextStyle(color: Colors.black54, fontSize: 15 ),)]),)),
+                        Text('FACEBOOK', style: TextStyle(color: Color(0xFF1F2937), fontSize: 12),)]),)),
                 ],
               ),
             ),
@@ -155,15 +254,17 @@ class _user_loginState extends State<user_login> {
             Container(
               child: TextButton(
                   onPressed: (){},
-                  child: Text("Forgot Password?", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 17, fontWeight: FontWeight.w700, color: Color(0xFF0672CB)),)),
+                  child: Text("Forgot Password?", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xFF0672CB)),)),
             ),
+            SizedBox(height: 30,),
+
             Align(
               alignment: Alignment.center,
             child: Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Want to create new account?", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black54),),
+                  Text("Want to create new account?", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 16, fontWeight: FontWeight.w700, color: Colors.black54),),
                   Container(
                     child: TextButton(
                         onPressed: (){
@@ -172,16 +273,14 @@ class _user_loginState extends State<user_login> {
                             MaterialPageRoute(builder: (context) => User_register()),
                           );
                         },
-                        child: Text("Sign Up", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 9, fontWeight: FontWeight.w700, color: Color(0xFF0672CB)),)),
+                        child: Text("Sign Up", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xFF0672CB)),)),
                   ),
                 ],
               ),
             ),
             ),
-
           ],
         ),
-
       ),
     );
   }

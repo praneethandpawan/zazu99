@@ -59,6 +59,9 @@ dev_dependencies:
   geocoding: ^2.0.5
   flutter_phosphor_icons: ^0.0.1+6
   flutter_image_slider: ^0.0.2
+  otp_timer_button: ^1.1.0
+  carousel_slider: ^4.2.1
+
 
 
 
@@ -101,6 +104,9 @@ flutter:
     - assets/location.png
     - assets/picker.png
     - assets/mini_ad1.png
+    - assets/roundlogo3.png
+    - assets/SyngyMaxmim.png
+    - assets/mechantapply.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
