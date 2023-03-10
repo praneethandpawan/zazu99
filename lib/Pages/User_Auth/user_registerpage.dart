@@ -27,23 +27,23 @@ class _User_registerState extends State<User_register> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(height: 50),
+
             Align(
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: const EdgeInsets.only(left: 15),
-
                 child: Container(
                   alignment: Alignment.center,
-
                   child: IconButton(
-                    icon: const Icon(Icons.arrow_back_ios_new_sharp, size: 20,),
+                    icon: const Icon(Icons.arrow_back_ios_new_sharp, size: 20 ,color: Color(0xFF0672CB)),
                     style: IconButton.styleFrom(
                         backgroundColor: Colors.white),
                     padding: EdgeInsets.fromLTRB(0, 0, 0, 3),
                     onPressed: () => Navigator.of(context).pop(true),
                   ),
-                  width: 46,
-                  height: 46,
+                  width: 40,
+                  height: 40,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(9.0),
 
@@ -65,11 +65,11 @@ class _User_registerState extends State<User_register> {
 
             Container(
               // color: Colors.blueGrey,
-              // width: MediaQuery.of(context).size.width*5,
-              // height: MediaQuery.of(context).size.height*0.1,
-              child: Image.asset('assets/roundlogo3.png',fit:BoxFit.cover,),
+              width: MediaQuery.of(context).size.width * 0.6,
+              height: MediaQuery.of(context).size.height * 0.13,
+              child: Image.asset('assets/roundlogo3.png',),
             ),
-
+            SizedBox(height: 25),
             Container(
               child: Text("SIGNUP", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 25, fontWeight: FontWeight.w700, color: Color(0xFF0672CB)),),
             ),

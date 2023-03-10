@@ -87,14 +87,11 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
-    - assets/onboardingpagecloudbottom.png
     - assets/onboardingpage2.png
     - assets/second_img.png
     - assets/Logo3(1).png
-    - assets/topcloud.png
     - assets/User.png
     - assets/merchant.png
-    - assets/Bottomcloud.png
     - assets/googlelogin.png
     - assets/facebooklogin.png
     - assets/glogo.png
@@ -107,6 +104,9 @@ flutter:
     - assets/roundlogo3.png
     - assets/SyngyMaxmim.png
     - assets/mechantapply.png
+    - assets/kmrange.png
+    - assets/1.png
+    - assets/2.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

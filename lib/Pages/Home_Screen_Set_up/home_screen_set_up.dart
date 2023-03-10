@@ -5,13 +5,11 @@ import '../Actual_Pages/Ads Screen/ads_screen.dart';
 import '../Actual_Pages/Favorites_Page/favorite_page.dart';
 import '../Actual_Pages/Home_Page/home.dart';
 import '../Actual_Pages/Notifications Screen/notifications_Screen.dart';
+import '../User_Auth/chips.dart';
 
 class appbar_bottombar extends StatefulWidget {
-  late List<String> selectedReportList;
-  appbar_bottombar({required this.selectedReportList});
-  // appbar_bottombar({Key key, this.title}) : super(key: key);
-
-  // final String title;
+  List<String> sortedReportList;
+  appbar_bottombar({required this.sortedReportList});
 
   @override
   _appbar_bottombarState createState() => _appbar_bottombarState();
@@ -22,27 +20,19 @@ class _appbar_bottombarState extends State<appbar_bottombar> {
   late List<Widget> _pages;
   late PageController _pageController;
 
-
-  
-
   @override
   void initState() {
     super.initState();
-
     _selectedPageIndex = 0;
-
     _pages = [
-      Home(selectedReportList: [],),
+      Home(sortedReportList:widget.sortedReportList ,),
       favorites_page(),
       ads_screen(),
       notifications_screen(),
       account_screen(),
-
     ];
-
     _pageController = PageController(initialPage: _selectedPageIndex);
   }
-
 
   @override
   void dispose() {
@@ -54,7 +44,7 @@ class _appbar_bottombarState extends State<appbar_bottombar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+
       body: PageView(
         controller: _pageController,
         //The following parameter is just to prevent
@@ -114,4 +104,3 @@ class _appbar_bottombarState extends State<appbar_bottombar> {
     );
   }
 }
-

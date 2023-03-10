@@ -1,8 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:zazu99/Pages/User_Auth/user_otp_enter.dart';
 import 'package:zazu99/Pages/User_Auth/user_registerpage.dart';
-
 
 
 class user_login extends StatefulWidget {
@@ -42,6 +42,7 @@ class _user_loginState extends State<user_login> {
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            SizedBox(height: 50),
 
             Align(
               alignment: Alignment.centerLeft,
@@ -50,14 +51,14 @@ class _user_loginState extends State<user_login> {
                 child: Container(
                   alignment: Alignment.center,
                   child: IconButton(
-                    icon: const Icon(Icons.arrow_back_ios_new_sharp, size: 20 ,),
+                    icon: const Icon(Icons.arrow_back_ios_new_sharp, size: 20 ,color: Color(0xFF0672CB)),
                     style: IconButton.styleFrom(
                         backgroundColor: Colors.white),
                     padding: EdgeInsets.fromLTRB(0, 0, 0, 3),
                     onPressed: () => Navigator.of(context).pop(true),
                   ),
-                  width: 46,
-                  height: 46,
+                  width: 40,
+                  height: 40,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(9.0),
 
@@ -76,13 +77,14 @@ class _user_loginState extends State<user_login> {
                 ),
               ),
             ),
+
             Container(
               // color: Colors.blueGrey,
-              // width: MediaQuery.of(context).size.width*5,
-              // height: MediaQuery.of(context).size.height*0.1,
-              child: Image.asset('assets/roundlogo3.png',fit:BoxFit.cover,),
+              width: MediaQuery.of(context).size.width * 0.6,
+              height: MediaQuery.of(context).size.height * 0.13,
+              child: Image.asset('assets/roundlogo3.png',),
             ),
-
+            SizedBox(height: 30),
             Container(
               child: Text("LOGIN", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 25, fontWeight: FontWeight.w700, color: Color(0xFF0672CB)),),
             ),
@@ -118,10 +120,8 @@ class _user_loginState extends State<user_login> {
                   print('Country changed to: ' + country.name);
                 },
                 controller:controller,
-
               ),
             ),
-
 
 
             // Padding(
@@ -145,7 +145,6 @@ class _user_loginState extends State<user_login> {
             //     ),
             //   ),
             // ),
-
 
 
             SizedBox(
@@ -228,7 +227,7 @@ class _user_loginState extends State<user_login> {
                           width: 25,
                           child: Image.asset("assets/glogo.png"),
                         ),
-                        SizedBox(width: 5,),
+                        SizedBox(width: 5),
                         Text('GOOGLE', style: TextStyle(color:  Color(0xFF1F2937), fontSize: 12),)]),)),
                   SizedBox(width: 18,),
                   Expanded(child: OutlinedButton(

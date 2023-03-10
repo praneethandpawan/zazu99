@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: isviewed != 0 ? ggg() : Home(selectedReportList: [],),
+      home: isviewed != 0 ? ggg() : Home(sortedReportList: [],),
     );
   }
 }
