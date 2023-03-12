@@ -28,14 +28,14 @@ class _current_or_other_location_pageState extends State<current_or_other_locati
                   child: Container(
                     alignment: Alignment.center,
                     child: IconButton(
-                      icon: const Icon(Icons.arrow_back_ios_new_sharp, size: 20 ,),
+                      icon: const Icon(Icons.arrow_back_ios_new_sharp, size: 20 ,color: Color(0xFF0672CB)),
                       style: IconButton.styleFrom(
-                          backgroundColor: Color(0xFF0672CB)),
+                          backgroundColor: Colors.white),
                       padding: EdgeInsets.fromLTRB(0, 0, 0, 3),
                       onPressed: () => Navigator.of(context).pop(true),
                     ),
-                    width: 46,
-                    height: 46,
+                    width: 40,
+                    height: 40,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(9.0),
 

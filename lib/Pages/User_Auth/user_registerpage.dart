@@ -23,11 +23,12 @@ class _User_registerState extends State<User_register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 50),
+            SizedBox(height: 21),
 
             Align(
               alignment: Alignment.centerLeft,
@@ -73,7 +74,7 @@ class _User_registerState extends State<User_register> {
             Container(
               child: Text("SIGNUP", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 25, fontWeight: FontWeight.w700, color: Color(0xFF0672CB)),),
             ),
-            SizedBox(height: 30,),
+            SizedBox(height: 20,),
             Container(
               child: Padding(
                 padding: const EdgeInsets.only(left: 18.0, bottom: 18.0, right: 18),
@@ -294,7 +295,7 @@ class _User_registerState extends State<User_register> {
 
 
 
-            SizedBox(height: 30,),
+            SizedBox(height:18,),
 
             IntrinsicHeight(
               child: Row(
@@ -372,12 +373,7 @@ class _User_registerState extends State<User_register> {
 
             SizedBox(height: 30,),
 
-            Container(
-              child: TextButton(
-                  onPressed: (){},
-                  child: Text("Forgot Password?", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xFF0672CB)),)),
-            ),
-            SizedBox(height: 30,),
+
 
             Align(
               alignment: Alignment.center,
@@ -398,6 +394,15 @@ class _User_registerState extends State<User_register> {
                     ),
                   ],
                 ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                // color: Colors.red,
+                height:100,
+                width: 100,
+                child: Image.asset('assets/SyngyMaxmim.png'),
               ),
             ),
           ],

@@ -146,6 +146,7 @@ class _User_Merchant_SelectState extends State<User_Merchant_Select> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.spaceAround,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
-
 import '../../Testing.dart';
+import 'package:carousel_pro/carousel_pro.dart';
+
 
 class Home extends StatefulWidget {
   List<String> sortedReportList;
@@ -59,7 +59,7 @@ class _HomeState extends State<Home> {
           width: MediaQuery.of(context).size.width * 5,
           height: 100,
           child: Row(
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               // Container(
               //   // width: MediaQuery.of(context).size.width * 0.44,
@@ -70,13 +70,13 @@ class _HomeState extends State<Home> {
               //   ),
               // ),
               new Container(
-              width: MediaQuery.of(context).size.width * 0.44,
+              width: MediaQuery.of(context).size.width * 0.60,
               padding: new EdgeInsets.only(right: 13.0),
                 child: new Text(
                   'Narsingi-Puppalaguda Main Ro',
                   overflow: TextOverflow.ellipsis,
                   style: new TextStyle(
-                    fontSize: 16.0,
+                    fontSize: 18.0,
                     fontFamily: 'Roboto',
                     color: new Color(0xFF212121),
                     fontWeight: FontWeight.bold,
@@ -94,25 +94,28 @@ class _HomeState extends State<Home> {
                   ),
 
                   child: Container(
-                      // width: MediaQuery.of(context).size.width * 0.25,
+                      width: MediaQuery.of(context).size.width * 0.45,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           SizedBox(
-                              height: 30,
-                              width: 30,
+                              height: 25,
+                              width: 25,
                               child: Image.asset("assets/kmrange.png")),
-                          Text("2 Km"),
-                          Icon(Icons.arrow_drop_down, size: 40,),
+                          Flexible(
+                            child: SizedBox(
+                                width: 25,
+                                child: Text("2 Km", style: TextStyle(fontSize: 10,),)),
+                          ),
+                          Flexible(child: Icon(Icons.arrow_drop_down, size: 30,),),
                         ],
                       ),
                     ),
                     onPressed: (){
                         setState(() {
                           showWidget = !showWidget;
-
                         });
                       },
-
                   ),
               ),
             ],
@@ -121,7 +124,6 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.white,
       ),
       body: Stack(
-
         children: [
           ListView(
             children: [
@@ -138,36 +140,46 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
-                child: CarouselSlider(
-                  items: [
-                    Container(
-                      color: Colors.green,
-                    ),
-                    Container(
-                      color: Colors.yellow,
-                    ),
-                    Container(
-                      color: Colors.orangeAccent,
-                    ),
-                  ],
-                  options: CarouselOptions(
-                    height: 150,
-                    viewportFraction: 1.0,
-                    autoPlay: true,
-                    autoPlayInterval: Duration(seconds: 1),
-                    autoPlayAnimationDuration: Duration(milliseconds: 800),
-                    autoPlayCurve: Curves.fastOutSlowIn,
-                    pauseAutoPlayOnTouch: true,
-                    aspectRatio: 16 / 9,
-                    onPageChanged: (index, reason) {
-                    },
-                  ),
-                ),
+
+
+
+              Container(
+                height: 170,
+                child: Center(
+                    child: ListView(
+                      children: [
+                        SizedBox(
+                          height: 170.0,
+                          width: double.infinity,
+                          child: Carousel(
+                            dotSize: 6.0,
+                            dotSpacing: 15.0,
+                            dotPosition: DotPosition.bottomCenter,
+                            dotBgColor:Colors.transparent,
+                            dotColor: Colors.white,
+                            images: [
+                              GestureDetector(
+                                  onTap: (){},
+                                  child: Image.asset('assets/main_ad.png', fit: BoxFit.cover)),
+                              Image.asset('assets/main_ad.png', fit: BoxFit.cover),
+                              Image.asset('assets/main_ad.png', fit: BoxFit.cover),
+                              Image.asset('assets/main_ad.png', fit: BoxFit.cover),
+                            ],
+                          ),
+                        ),
+                      ],
+                    )),
               ),
+
+
+
+
+
+
+
+
               Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
+                padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10, top : 27),
                 child: Text(
                   "Selected Services",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -218,14 +230,7 @@ class _HomeState extends State<Home> {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    color: Colors.white,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: Text(
-                        "Get 10% on your first service",
-                        style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                      ),
-                    ),
+                    child: Image.asset("assets/mini_ad1.png"),
                   ),
                 ),
               ),
@@ -292,7 +297,14 @@ class _HomeState extends State<Home> {
                               ),
                               ElevatedButton(
                                 child: Text("Apply"),
-                                onPressed: (){},
+                                onPressed: ()
+                                {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => tyty()),
+                                  );
+                                },
                               ),
                             ],
                           ),
@@ -396,8 +408,7 @@ class _HomeState extends State<Home> {
 
                   list(),
                   Padding(
-                    padding:
-                    const EdgeInsets.only(left: 20, right: 20, bottom: 5, top: 5),
+                    padding: const EdgeInsets.only(left: 20, right: 20, bottom: 5, top: 5),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -707,7 +718,7 @@ class _HomeState extends State<Home> {
 //               children: [
 //                 //add image
 //                 Container(
-//                   // height: 150,
+//                   // height: 15  0,
 //                   child: Image.asset('assets/mechantapply.png'),
 //                 ),
 //

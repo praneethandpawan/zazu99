@@ -33,14 +33,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
-  carousel_slider:
+  carousel_pro:
     dependency: "direct dev"
     description:
-      name: carousel_slider
-      sha256: "9c695cc963bf1d04a47bd6021f68befce8970bcd61d24938e1fb0918cf5d9c42"
+      name: carousel_pro
+      sha256: "714689d60d2edb263673783c264c8e5207640d52dcbdcb60d8bd1a17fe7514a9"
       url: "https://pub.dev"
     source: hosted
-    version: "4.2.1"
+    version: "1.0.0"
   characters:
     dependency: transitive
     description:
@@ -142,14 +142,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.3.0"
-  flutter_image_slider:
-    dependency: "direct dev"
-    description:
-      name: flutter_image_slider
-      sha256: "40ad7f99e8f46266bb945938debfd7b1b0c8351735e9d6c929dbb3df587810c9"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.2"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -162,10 +154,10 @@ packages:
     dependency: "direct dev"
     description:
       name: flutter_native_splash
-      sha256: e301ae206ff0fb09b67d3716009c6c28c2da57a0ad164827b178421bb9d601f7
+      sha256: af665ef80a213a9ed502845a3d7a61b9acca4100ee7e9f067a7440bc3acd6730
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.18"
+    version: "2.2.19"
   flutter_phosphor_icons:
     dependency: "direct dev"
     description:
@@ -186,10 +178,10 @@ packages:
     dependency: "direct dev"
     description:
       name: flutter_screenutil
-      sha256: "8e049ecdc1a62c90e6bf0e9c8398ace8dde81b92889c70cfe06281d79d59113a"
+      sha256: "0a122936b450324cbdfd51be0819cc6fcebb093eb65585e9cd92263f7a1a8a39"
       url: "https://pub.dev"
     source: hosted
-    version: "5.6.1"
+    version: "5.7.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -284,10 +276,10 @@ packages:
     dependency: "direct dev"
     description:
       name: google_maps_flutter
-      sha256: "0c6b72b4b1e0f6204973e2b40868a75fe6380725d498f215cd7e35ed920d1c57"
+      sha256: "24392ef192f3b00bcd93151375676805a9933574423a5bd5509a0ead2e8a4215"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.3"
+    version: "2.2.5"
   google_maps_flutter_android:
     dependency: transitive
     description:
@@ -324,10 +316,10 @@ packages:
     dependency: transitive
     description:
       name: html
-      sha256: d9793e10dbe0e6c364f4c59bf3e01fb33a9b2a674bc7a1081693dba0614b6269
+      sha256: "79d498e6d6761925a34ee5ea8fa6dfef38607781d2fa91e37523474282af55cb"
       url: "https://pub.dev"
     source: hosted
-    version: "0.15.1"
+    version: "0.15.2"
   http:
     dependency: transitive
     description:
@@ -532,10 +524,10 @@ packages:
     dependency: "direct dev"
     description:
       name: shared_preferences
-      sha256: "5949029e70abe87f75cfe59d17bf5c397619c4b74a099b10116baeb34786fad9"
+      sha256: ee6257848f822b8481691f20c3e6d2bfee2e9eccb2a3d249907fcfb198c55b41
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.17"
+    version: "2.0.18"
   shared_preferences_android:
     dependency: transitive
     description:

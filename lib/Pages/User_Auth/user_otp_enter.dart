@@ -20,7 +20,7 @@ class _user_otp_enterState extends State<user_otp_enter> {
       body: SingleChildScrollView(
         child: Column(
             children: [
-              SizedBox(height: 50),
+              SizedBox(height: 21),
 
               Align(
                 alignment: Alignment.centerLeft,
