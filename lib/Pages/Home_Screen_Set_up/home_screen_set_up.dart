@@ -30,6 +30,7 @@ class _appbar_bottombarState extends State<appbar_bottombar> {
       ads_screen(),
       notifications_screen(),
       account_screen(),
+
     ];
     _pageController = PageController(initialPage: _selectedPageIndex);
   }

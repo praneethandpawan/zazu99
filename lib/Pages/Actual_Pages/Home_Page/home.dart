@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
+import 'package:zazu99/Pages/Actual_Pages/Home_Page/Merchant%20Search/merchant_search_results.dart';
 import '../../Testing.dart';
-import 'package:carousel_pro/carousel_pro.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 
 class Home extends StatefulWidget {
@@ -20,13 +21,20 @@ class _HomeState extends State<Home> {
 
   String dropdownvalue = '2 Km';
 
-  var items = [
-    '1 Km',
-    '2 Km',
-    '3 Km',
-    '4 Km',
-    '5 Km',
+  List img=[
+    Image.asset("assets/main_ad.png",fit: BoxFit.fill,),
+    Image.asset("assets/main_ad.png",fit: BoxFit.fill,),
+    Image.asset("assets/main_ad.png",fit: BoxFit.fill,),
+    Image.asset("assets/main_ad.png",fit: BoxFit.fill,),
   ];
+
+  // var items = [
+  //   '1 Km',
+  //   '2 Km',
+  //   '3 Km',
+  //   '4 Km',
+  //   '5 Km',
+  // ];
 
   // enum Fruit {
   // apple,
@@ -44,7 +52,7 @@ class _HomeState extends State<Home> {
   ];
   bool showWidget = false;
 
-
+  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -128,7 +136,7 @@ class _HomeState extends State<Home> {
           ListView(
             children: [
               Padding(
-                padding: EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 10),
+                padding: EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 14),
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: 'Search for "Beauty"',
@@ -143,43 +151,65 @@ class _HomeState extends State<Home> {
 
 
 
-              Container(
-                height: 170,
-                child: Center(
-                    child: ListView(
-                      children: [
-                        SizedBox(
-                          height: 170.0,
-                          width: double.infinity,
-                          child: Carousel(
-                            dotSize: 6.0,
-                            dotSpacing: 15.0,
-                            dotPosition: DotPosition.bottomCenter,
-                            dotBgColor:Colors.transparent,
-                            dotColor: Colors.white,
-                            images: [
-                              GestureDetector(
-                                  onTap: (){},
-                                  child: Image.asset('assets/main_ad.png', fit: BoxFit.cover)),
-                              Image.asset('assets/main_ad.png', fit: BoxFit.cover),
-                              Image.asset('assets/main_ad.png', fit: BoxFit.cover),
-                              Image.asset('assets/main_ad.png', fit: BoxFit.cover),
+
+
+                     Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+
+                            height: 170,
+                            // width: MediaQuery.of(context).size.width*0.5,
+                            child: CarouselSlider(
+                              items: [
+                                for (int i = 0; i < img.length; i++)
+                                  img[i],
+                              ],
+                              options: CarouselOptions(
+                                  height: 170,
+                                  viewportFraction: 1.0,
+                                  enlargeCenterPage: false,
+                                  onPageChanged: (index, reason) {
+                                    setState(() {
+                                      // print(reason.toString());
+                                      currentIndex = index;
+                                    });
+                                  },
+                                  autoPlay: true),
+                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              for (int i = 0; i < img.length; i++)
+                                Container(
+                                  height: 8,
+                                  width: 8,
+                                  margin: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      color: currentIndex == i ? Color(0xFF0672CB) : Color(0xFFCCCCCC),
+                                      shape: BoxShape.circle,
+                                      // boxShadow: [
+                                      //   BoxShadow(
+                                      //       color: Colors.grey,
+                                      //       spreadRadius: 1,
+                                      //       blurRadius: 3,
+                                      //       offset: Offset(2, 2))
+                                      // ]
+                                     ),
+                                ),
+
                             ],
                           ),
-                        ),
-                      ],
-                    )),
-              ),
+                        ],
 
-
-
-
-
-
+                      ),
+                    ),
 
 
               Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10, top : 27),
+                padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10, top : 20),
                 child: Text(
                   "Selected Services",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -246,7 +276,7 @@ class _HomeState extends State<Home> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    trendBox("Salon"),
+                    trendBox("Salon",),
                     trendBox("Electrical"),
                     trendBox("AC Repair"),
                     trendBox("Hair & Skin"),
@@ -302,7 +332,7 @@ class _HomeState extends State<Home> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => tyty()),
+                                        builder: (context) => merchant_search_results()),
                                   );
                                 },
                               ),
@@ -341,7 +371,10 @@ class _HomeState extends State<Home> {
     return Column(
       children: [
         Container(height: 40,width: 40,color: Colors.blueGrey,),
-        Text(text),
+        Padding(
+          padding: const EdgeInsets.only(top:3, left: 2, right: 2),
+          child: Text(text,style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600)),
+        ),
       ],
     );
   }
@@ -362,9 +395,7 @@ class _HomeState extends State<Home> {
 
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(9.0),
-
             boxShadow: [
-
               BoxShadow(
                 color: Colors.black.withOpacity(0.2),
                 offset: Offset(0.0, 0.0),
@@ -501,335 +532,6 @@ class _HomeState extends State<Home> {
                 )),
             title: Container(child: Text(results[index])),
           );
-        });
+        } );
   }
-
 }
-
-
-// import 'package:flutter/material.dart';
-// import 'package:carousel_slider/carousel_slider.dart';
-// import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
-//
-// class Home extends StatefulWidget {
-//   List<String> selectedReportList;
-//   Home({required this.selectedReportList});
-//
-//   @override
-//   State<Home> createState() => _HomeState();
-// }
-//
-// class _HomeState extends State<Home> {
-//   bool Visibled = false;
-//   bool isShowAll = false;
-//   String? _selectedOption;
-//   bool isVisible = false;
-//   // Initial Selected Value
-//   String dropdownvalue = '2 Km';
-//
-// // List of items in our dropdown men
-//   var items = [
-//     '1 Km',
-//     '2 Km',
-//     '3 Km',
-//     '4 Km',
-//     '5 Km',
-//   ];
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//         appBar: AppBar(
-//           leading: Icon(
-//             PhosphorIcons.map_pin,
-//             color: Color(0xFF0672CB),
-//             size: 32.0,
-//           ),
-//           title: Container(
-//             width: MediaQuery.of(context).size.width*5,
-//             height: 100,
-//             child: Row(
-//               children: [
-//                 Container(
-//                   width: MediaQuery.of(context).size.width*0.44,
-//                   child: Text("Narsingi-Puppalaguda Main Ro...",
-//                     overflow: TextOverflow.ellipsis, // new
-//                     style: TextStyle(fontSize: 15, color: Colors.black),
-//                   ),
-//                 ),
-//                 Spacer(),
-//                 Container(
-//                   width: MediaQuery.of(context).size.width*0.22,
-//                   // color: Colors.green,
-//                   child: DropdownButtonHideUnderline(
-//                     child: DropdownButton(
-//                       // Initial Value
-//                       value: dropdownvalue,
-//                       // Down Arrow Icon
-//                       icon: const Icon(Icons.keyboard_arrow_down),
-//
-//                       // Array list of items
-//                       items: items.map((String items) {
-//                         return DropdownMenuItem(
-//                           value: items,
-//                           child: Text(items),
-//                         );
-//                       }).toList(),
-//                       // After selecting the desired option,it will
-//                       // change button value to selected value
-//                       onChanged: (String? newValue) {
-//                         setState(() {
-//                           dropdownvalue = newValue!;
-//                         });
-//                       },
-//                     ),
-//                   ),
-//                 ),
-//               ],
-//             ),
-//           ),
-//           backgroundColor: Colors.white,
-//         ),
-//         body: ListView(
-//           children: [
-//             Padding(
-//               padding: const EdgeInsets.only(
-//                   left: 20, right: 20, top: 20, bottom: 10),
-//               child: TextField(
-//                 decoration: InputDecoration(
-//                   hintText: 'Search for "Beauty"',
-//                   prefixIcon: Icon(Icons.search),
-//                   border: OutlineInputBorder(
-//                     borderSide: BorderSide(color: Colors.grey),
-//                     borderRadius: BorderRadius.all(Radius.circular(10)),
-//                   ),
-//                 ),
-//               ),
-//             ),
-//             Padding(
-//               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
-//               child: CarouselSlider(
-//                 items: [
-//                   Container(
-//                     color: Colors.green,
-//                   ),
-//                   Container(
-//                     color: Colors.yellow,
-//                   ),
-//                   Container(
-//                     color: Colors.orangeAccent,
-//                   )
-//                 ],
-//                 options: CarouselOptions(
-//                   height: 150,
-//                   viewportFraction: 1.0,
-//                   autoPlay: true,
-//                   autoPlayInterval: Duration(seconds: 1),
-//                   autoPlayAnimationDuration: Duration(milliseconds: 800),
-//                   autoPlayCurve: Curves.fastOutSlowIn,
-//                   pauseAutoPlayOnTouch: true,
-//                   aspectRatio: 16 / 9,
-//                   onPageChanged: (index, reason) {
-//                     // Handle page change
-//                   },
-//                 ),
-//               ),
-//             ),
-//             Padding(
-//               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
-//               child: Text(
-//                 "Selected Services",
-//                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-//               ),
-//             ),
-//             Flexible(
-//               child: GridView.builder(
-//                 shrinkWrap: true,
-//                 physics: AlwaysScrollableScrollPhysics(),
-//                 itemCount: isShowAll ? (widget.selectedReportList.length) : 8,
-//                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//                   crossAxisCount: 4,
-//                   crossAxisSpacing: 10,
-//                   mainAxisSpacing: 10,
-//                 ),
-//                 itemBuilder: (context, index) {
-//                   return GestureDetector(
-//                     onTap: () {
-//                       setState(() {
-//                         if (index == 7) {
-//                           isShowAll = true;
-//                         } else if (index ==
-//                             (widget.selectedReportList.length - 1)) {
-//                           isShowAll = false;
-//                         }
-//                       });
-//                     },
-//                     child: Container(
-//                       child: Center(
-//                         child: Column(
-//                           children: [
-//                             Container(
-//                               color: Colors.blueGrey,
-//                               height: 50,
-//                               width: 50,
-//                             ),
-//
-//                             check(index),
-//                             // Text(widget.selectedReportList[index]),
-//                           ],
-//                         ),
-//                       ),
-//                     ),
-//                   );
-//                 },
-//               ),
-//             ),
-//             Container(
-//                 color: Colors.green,
-//                 child: Padding(
-//                   padding: const EdgeInsets.all(8.0),
-//                   child: Container(
-//                     color: Colors.white,
-//                     child: Padding(
-//                       padding: const EdgeInsets.only(left: 20),
-//                       child: Text(
-//                         "Get 10% on your first service",
-//                         style: TextStyle(
-//                             fontSize: 15, fontWeight: FontWeight.bold),
-//                       ),
-//                     ),
-//                   ),
-//                 ),
-//             ),
-//             Padding(
-//               padding: const EdgeInsets.only(left: 20, top: 10),
-//               child: Row(
-//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                 children: [
-//                   Text(
-//                     "Trending Services",
-//                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-//                   ),
-//                 ],
-//               ),
-//             ),
-//
-//             Stack(
-//               children: [
-//                 //add image
-//                 Container(
-//                   // height: 15  0,
-//                   child: Image.asset('assets/mechantapply.png'),
-//                 ),
-//
-//                 Column(
-//                   crossAxisAlignment: CrossAxisAlignment.start,
-//                   children: [
-//                     Positioned(
-//                       child: Padding(
-//                         padding: const EdgeInsets.all(20.0),
-//                         child: Column(
-//                           mainAxisAlignment: MainAxisAlignment.start,
-//                           crossAxisAlignment: CrossAxisAlignment.start,
-//                           children: [
-//                             Text(
-//                               'Want to become a Merchant?',
-//                               style: TextStyle(
-//                                 color: Colors.black,
-//                                 fontSize: 17,
-//                                 fontWeight: FontWeight.bold,
-//                               ),
-//                             ),
-//                             SizedBox(
-//                               height: 20,
-//                             ),
-//                             Text('Earn more revenue',style: TextStyle(
-//                               color: Colors.black,
-//                               fontSize: 17,
-//                             ),),
-//                             Text(
-//                               'Refer and get 1@ per order',
-//                               style: TextStyle(
-//                                 color: Colors.black,
-//                                 fontSize: 17,
-//                               ),
-//                             ),
-//                           ],
-//                         ),
-//                       ),
-//                     ),
-//                     Padding(
-//                       padding: const EdgeInsets.only(left: 20.0,),
-//                       child: ElevatedButton(
-//                         onPressed: () {
-//                           showDialog(
-//                             context: context,
-//                             builder: (BuildContext context) {
-//                               return Center(
-//                                 child: Container(
-//                                   decoration: BoxDecoration(
-//                                     borderRadius: BorderRadius.circular(16),
-//                                     color: Colors.white,
-//                                   ),
-//                                   padding: EdgeInsets.all(16),
-//                                   width: 200,
-//                                   height: 200,
-//                                   child: Column(
-//                                     mainAxisAlignment: MainAxisAlignment.center,
-//                                     children: [
-//                                       Text(
-//                                         'Select an option',
-//                                         style: TextStyle(fontSize: 20),
-//                                       ),
-//                                       SizedBox(height: 16),
-//                                       ElevatedButton(
-//                                         onPressed: () {
-//                                           setState(() {
-//                                             _selectedOption = 'Option 1';
-//                                           });
-//                                           Navigator.pop(context);
-//                                         },
-//                                         child: Text('Option 1'),
-//                                       ),
-//                                       SizedBox(height: 8),
-//                                       ElevatedButton(
-//                                         onPressed: () {
-//                                           setState(() {
-//                                             _selectedOption = 'Option 2';
-//                                           });
-//                                           Navigator.pop(context);
-//                                         },
-//                                         child: Text('Option 2'),
-//                                       ),
-//                                     ],
-//                                   ),
-//                                 ),
-//                               );
-//                             },
-//                           );
-//                         },
-//                         child: _selectedOption == null
-//                             ? Text('Apply')
-//                             : Text('Selected: $_selectedOption'),
-//                       ),
-//                     ),
-//                   ],
-//                 ),
-//               ],
-//             ),
-//           ],
-//         ));
-//   }
-//
-//   Widget check(int index) {
-//     String text;
-//
-//     if (index == 7) {
-//       return isShowAll ? Text(widget.selectedReportList[index]) : Text("more");
-//     } else {
-//       print(index);
-//       return Text(widget.selectedReportList[index]);
-//     }
-//   }
-//
-// }

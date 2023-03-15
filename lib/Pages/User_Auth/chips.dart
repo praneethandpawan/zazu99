@@ -172,8 +172,11 @@ class _ChipsScreenState extends State<ChipsScreen> {
                             sortedReportList: sortedReportList,
                           ),
                         ),
-                      );
-
+                      ).then((_) {
+                        setState(() {
+                          sortedReportList.clear();
+                        });
+                      });
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(left: 20, right: 20),
@@ -191,7 +194,8 @@ class _ChipsScreenState extends State<ChipsScreen> {
               ],
             ),
           ),
-        ));
+        ),
+    );
   }
 
   sortedArray() {

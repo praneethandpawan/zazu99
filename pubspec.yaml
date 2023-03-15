@@ -59,7 +59,7 @@ dev_dependencies:
   geocoding: ^2.0.5
   flutter_phosphor_icons: ^0.0.1+6
   otp_timer_button: ^1.1.0
-  carousel_pro: ^1.0.0
+  carousel_slider: ^4.2.1
 
 
 
@@ -107,6 +107,8 @@ flutter:
     - assets/1.png
     - assets/2.png
     - assets/main_ad.png
+    - assets/merchantimg.png
+    - assets/mapimg.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
