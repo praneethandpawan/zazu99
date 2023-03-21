@@ -6,6 +6,7 @@ import '../../Testing.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 
+
 class Home extends StatefulWidget {
   List<String> sortedReportList;
 
@@ -45,6 +46,7 @@ class _HomeState extends State<Home> {
     "ck",
     "kk",
   ];
+
   List<String> items3 = [
     "pp",
     "rrr",
@@ -63,6 +65,7 @@ class _HomeState extends State<Home> {
     "Beauty supply stores"
     "Day Spas"
   ];
+
   List<String> combinedList = [];
   @override
   void initState() {

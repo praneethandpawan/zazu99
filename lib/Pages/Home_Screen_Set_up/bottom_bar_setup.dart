@@ -8,6 +8,7 @@ import '../Actual_Pages/Home_Page/home.dart';
 import '../Actual_Pages/Notifications Screen/notifications_Screen.dart';
 
 
+
 class BottomNavBar extends StatefulWidget {
   List<String> sortedReportList;
   BottomNavBar({required this.sortedReportList});
@@ -89,7 +90,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
           activeColorPrimary: Colors.blue,
           inactiveColorPrimary: Colors.black,
         ),
-
       ];
     }
 
@@ -144,7 +144,9 @@ class Screen1 extends StatelessWidget {
       ),
     );
   }
-}class Screen2 extends StatelessWidget {
+}
+
+class Screen2 extends StatelessWidget {
   const Screen2({Key? key}) : super(key: key);
 
   @override
@@ -159,7 +161,9 @@ class Screen1 extends StatelessWidget {
       ),
     );
   }
-}class Screen3 extends StatelessWidget {
+}
+
+class Screen3 extends StatelessWidget {
   const Screen3({Key? key}) : super(key: key);
 
   @override
@@ -174,7 +178,9 @@ class Screen1 extends StatelessWidget {
       ),
     );
   }
-}class Screen4 extends StatelessWidget {
+}
+
+class Screen4 extends StatelessWidget {
   const Screen4({Key? key}) : super(key: key);
 
   @override
@@ -189,7 +195,9 @@ class Screen1 extends StatelessWidget {
       ),
     );
   }
-}class Screen5 extends StatelessWidget {
+}
+
+class Screen5 extends StatelessWidget {
   const Screen5({Key? key}) : super(key: key);
 
   @override
@@ -205,4 +213,3 @@ class Screen1 extends StatelessWidget {
     );
   }
 }
-
