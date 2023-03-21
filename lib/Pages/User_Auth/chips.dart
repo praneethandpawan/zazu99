@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../Actual_Pages/Home_Page/home.dart';
+import '../Home_Screen_Set_up/bottom_bar_setup.dart';
 import '../Home_Screen_Set_up/home_screen_set_up.dart';
 
 class ChipsScreen extends StatefulWidget {
@@ -35,7 +36,7 @@ class _ChipsScreenState extends State<ChipsScreen> {
     "Repair & Services",
     "Baby & Kids ",
     "Broadband",
-    "Medical",
+    "Home Seervices",
     "Doctor",
     "Travel",
     "Real Estate",
@@ -149,6 +150,39 @@ class _ChipsScreenState extends State<ChipsScreen> {
                 Container(
                   height: 50,
                   child: OutlinedButton(
+                    // onPressed: () {
+                    //   for (int i = 0; i < selectedReportList.length; i++) {
+                    //     sortedReportList.add(selectedReportList[i]);
+                    //   }
+                    //
+                    //   for (int i = 0; i < reportList.length; i++) {
+                    //     var item = reportList[i];
+                    //     if (sortedReportList.contains(item)) {
+                    //       print(item);
+                    //     } else {
+                    //       sortedReportList.add(item);
+                    //       reportList.sort(
+                    //               (a, b) => a.toString().compareTo(b.toString()));
+                    //     }
+                    //   }
+                    //   sortedReportList.add('Less');
+                    //   Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => bottom_bar_setup(
+                    //         sortedReportList: sortedReportList,
+                    //       ),
+                    //     ),
+                    //   ).then((_) {
+                    //     setState(() {
+                    //       sortedReportList.clear();
+                    //     });
+                    //   });
+                    // },
+
+
+
+
                     onPressed: () {
                       for (int i = 0; i < selectedReportList.length; i++) {
                         sortedReportList.add(selectedReportList[i]);
@@ -168,7 +202,7 @@ class _ChipsScreenState extends State<ChipsScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => appbar_bottombar(
+                          builder: (context) => BottomNavBar(
                             sortedReportList: sortedReportList,
                           ),
                         ),
@@ -178,6 +212,11 @@ class _ChipsScreenState extends State<ChipsScreen> {
                         });
                       });
                     },
+
+
+
+
+
                     child: Padding(
                       padding: const EdgeInsets.only(left: 20, right: 20),
                       child: Text(

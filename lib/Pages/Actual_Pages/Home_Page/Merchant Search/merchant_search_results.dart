@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
 
+import '../Merchant Screens/merchant_details.dart';
+
 
 class merchant_search_results extends StatefulWidget {
   const merchant_search_results({Key? key}) : super(key: key);
@@ -17,16 +19,15 @@ class _merchant_search_resultsState extends State<merchant_search_results> {
     return Scaffold(
 
       appBar: AppBar(
-        leading: Icon(
-          PhosphorIcons.map_pin,
-          color: Color(0xFF0672CB),
-          size: 32.0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.blue),
+          onPressed: () => Navigator.of(context).pop(),
         ),
         title: Container(
           width: MediaQuery.of(context).size.width * 5,
           height: 100,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               // Container(
               //   // width: MediaQuery.of(context).size.width * 0.44,
@@ -40,7 +41,7 @@ class _merchant_search_resultsState extends State<merchant_search_results> {
                 width: MediaQuery.of(context).size.width * 0.60,
                 padding: new EdgeInsets.only(right: 13.0),
                 child: new Text(
-                  'Narsingi-Puppalaguda Main Ro',
+                  'Beauty Parlours ',
                   overflow: TextOverflow.ellipsis,
                   style: new TextStyle(
                     fontSize: 18.0,
@@ -124,6 +125,8 @@ class _merchant_search_resultsState extends State<merchant_search_results> {
               ),
 
 
+
+
               merchant(),
 
 
@@ -136,6 +139,7 @@ class _merchant_search_resultsState extends State<merchant_search_results> {
 
 
               merchant(),
+
 
             ],
           ),
@@ -165,10 +169,19 @@ class _merchant_search_resultsState extends State<merchant_search_results> {
                 new Container(
                   width: MediaQuery.of(context).size.width * 0.70,
                   padding: new EdgeInsets.only(right: 13.0),
-                  child: new Text(
-                      'The Glamour Lounge',
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(fontWeight: FontWeight.w500, fontSize: 23, color: Color(0xFF0672CB))
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => merchant_details()),
+                      );
+                    },
+                    child: new Text(
+                        'The Glamour Lounge',
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(fontWeight: FontWeight.w500, fontSize: 23, color: Color(0xFF0672CB))
+                    ),
                   ),
                 ),
 
@@ -210,7 +223,6 @@ class _merchant_search_resultsState extends State<merchant_search_results> {
                               style: TextStyle(fontSize: 17, color: Colors.black,fontWeight: FontWeight.w400),
                             ),
                           ),
-
                         ),
                         Text("..., Hyderabad-505006.",style: TextStyle(fontSize: 17,color: Colors.black, fontWeight: FontWeight.w400),
                           overflow: TextOverflow.ellipsis,),

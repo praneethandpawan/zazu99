@@ -109,7 +109,7 @@ class _user_loginState extends State<user_login> {
             child: Padding(
               padding: EdgeInsets.only(left: 17),
               child: Container(
-                child: Text("Phone Number", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 19, fontWeight: FontWeight.w700,color: Colors.black,),),
+                child: Text("Mobile Number", style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 19, fontWeight: FontWeight.w700,color: Colors.black,),),
               ),
             ),
           ),

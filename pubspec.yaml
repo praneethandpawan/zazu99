@@ -60,6 +60,10 @@ dev_dependencies:
   flutter_phosphor_icons: ^0.0.1+6
   otp_timer_button: ^1.1.0
   carousel_slider: ^4.2.1
+  flutter_rating_bar: ^4.0.1
+  like_button: ^2.0.5
+  url_launcher: ^6.1.10
+  persistent_bottom_nav_bar: ^5.0.2
 
 
 
@@ -100,6 +104,8 @@ flutter:
     - assets/location.png
     - assets/picker.png
     - assets/mini_ad1.png
+    - assets/gstpic.png
+    - assets/ads99.png
     - assets/roundlogo3.png
     - assets/SyngyMaxmim.png
     - assets/mechantapply.png
@@ -109,6 +115,12 @@ flutter:
     - assets/main_ad.png
     - assets/merchantimg.png
     - assets/mapimg.png
+    - assets/phonesym.png
+    - assets/fbsym.png
+    - assets/whatsappsym.png
+    - assets/ytsym.png
+    - assets/mapsym.png
+    - assets/sharesym.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
 import 'package:zazu99/Pages/Actual_Pages/Home_Page/Merchant%20Search/merchant_search_results.dart';
+import 'package:zazu99/Pages/Actual_Pages/Home_Page/Merchant%20Search/search.dart';
 import '../../Testing.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 
 class Home extends StatefulWidget {
   List<String> sortedReportList;
+
   Home({required this.sortedReportList});
 
   @override
@@ -18,7 +20,6 @@ class _HomeState extends State<Home> {
   bool isShowAll = false;
   String? _selectedOption;
   bool isVisible = false;
-
   String dropdownvalue = '2 Km';
 
   List img=[
@@ -27,6 +28,67 @@ class _HomeState extends State<Home> {
     Image.asset("assets/main_ad.png",fit: BoxFit.fill,),
     Image.asset("assets/main_ad.png",fit: BoxFit.fill,),
   ];
+  String array1Name = 'Array 1';
+  List<String> items1 = [
+    "Apple",
+    "Banana",
+    "Cherry",
+    "Durian",
+    "Elderberry",
+  ];
+  String array2Name = 'Array 2';
+  String array3Name = 'Array 3';
+  List<String> items2 = [
+    "pk",
+    "ak",
+    "bk",
+    "ck",
+    "kk",
+  ];
+  List<String> items3 = [
+    "pp",
+    "rrr",
+    "cc",
+    "dd",
+    "hh",
+  ];
+
+  List<String> Beauty = [
+    "Hair salons"
+    "Aesthetic clinics"
+    "Massage centres"
+    "Skin care centers"
+    "Makeup studios"
+    "Body care centres"
+    "Beauty supply stores"
+    "Day Spas"
+  ];
+  List<String> combinedList = [];
+  @override
+  void initState() {
+    super.initState();
+    combinedList = [...items1, ...items2, ...items3, ...Beauty];
+  }
+
+  List<String> _searchResult = [];
+
+  TextEditingController _searchController = TextEditingController();
+
+  void _onSearchTextChanged(String text) {
+    _searchResult.clear();
+    if (text.isEmpty) {
+      setState(() {});
+      return;
+    }
+    combinedList.forEach((item) {
+      if (item.toLowerCase().contains(text.toLowerCase())) {
+        _searchResult.add(item);
+      }
+    });
+    setState(() {});
+  }
+
+  bool showWidget = false;
 
   // var items = [
   //   '1 Km',
@@ -50,7 +112,7 @@ class _HomeState extends State<Home> {
     '4 Km',
     '5 Km',
   ];
-  bool showWidget = false;
+
 
   int currentIndex = 0;
   @override
@@ -134,20 +196,112 @@ class _HomeState extends State<Home> {
       body: Stack(
         children: [
           ListView(
+
             children: [
               Padding(
-                padding: EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 14),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Search for "Beauty"',
-                    prefixIcon: Icon(Icons.search),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey),
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                padding:
+                EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 10),
+                child: GestureDetector(
+                  onTap: () {
+                  },
+                  child: TextField(
+                    controller: _searchController,
+                    onChanged: _onSearchTextChanged,
+                    decoration: InputDecoration(
+                      hintText: 'Search for "Beauty"',
+                      prefixIcon: Icon(Icons.search),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      ),
                     ),
                   ),
                 ),
               ),
+              Visibility(
+                  visible: _searchResult.isNotEmpty,
+                  child: Padding(
+                    padding:
+                    const EdgeInsets.only(left: 20, right: 20, bottom: 10),
+                    child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5.0),
+                          border: Border.all(
+                            color: Colors.black12,
+                            width: 2.0,
+                          ),
+                        ),
+                        height: 50,
+                        child: search()),
+                  )),
+
+
+
+
+              // Padding(
+              //   padding: EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 14),
+              //
+              //
+              //
+              //
+              //   child: TextField(
+              //     decoration: InputDecoration(
+              //       hintText: 'Search for "Beauty"',
+              //       prefixIcon: Icon(Icons.search),
+              //       border: OutlineInputBorder(
+              //         borderSide: BorderSide(color: Colors.grey),
+              //         borderRadius: BorderRadius.all(Radius.circular(10)),
+              //       ),
+              //     ),
+              //   ),
+              //
+              //
+              //
+              //
+              // ),
+
+
+
+
+              //
+              // Padding(
+              //   padding:
+              //   EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 10),
+              //   child: GestureDetector(
+              //     onTap: () {
+              //     },
+              //     child: TextField(
+              //       controller: _searchController,
+              //       onChanged: _onSearchTextChanged,
+              //       decoration: InputDecoration(
+              //         hintText: 'Search for "Beauty"',
+              //         prefixIcon: Icon(Icons.search),
+              //         border: OutlineInputBorder(
+              //           borderSide: BorderSide(color: Colors.grey),
+              //           borderRadius: BorderRadius.all(Radius.circular(10)),
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              // Visibility(
+              //     visible: _searchResult.isNotEmpty,
+              //     child: Padding(
+              //       padding:
+              //       const EdgeInsets.only(left: 20, right: 20, bottom: 10),
+              //       child: Container(
+              //           decoration: BoxDecoration(
+              //             borderRadius: BorderRadius.circular(5.0),
+              //             border: Border.all(
+              //               color: Colors.black12,
+              //               width: 2.0,
+              //             ),
+              //           ),
+              //           height: 50,
+              //           child: search()),
+              //     )),
+
+
 
 
 
@@ -533,5 +687,36 @@ class _HomeState extends State<Home> {
             title: Container(child: Text(results[index])),
           );
         } );
+  }
+
+  Widget search() {
+    return ListView.builder(
+      physics: NeverScrollableScrollPhysics(),
+      itemCount:
+      _searchResult.length > 0 ? _searchResult.length : combinedList.length,
+      itemBuilder: (BuildContext context, int index) {
+        final String item = _searchResult.length > 0
+            ? _searchResult[index]
+            : "No results found";
+        return ListTile(
+          title: Row(
+            children: [
+              Text(item),
+            ],
+          ),
+          onTap: () {
+            setState(() {
+              //    selectedIndex = 0;
+            }
+            );
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => SecondScreen(
+                  selectedItem: item,
+                  combinedList: combinedList,
+                )));
+          },
+        );
+      },
+    );
   }
 }
