@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
-
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../Merchant Screens/merchant_details.dart';
-
 
 class merchant_search_results extends StatefulWidget {
   const merchant_search_results({Key? key}) : super(key: key);
@@ -140,6 +139,13 @@ class _merchant_search_resultsState extends State<merchant_search_results> {
 
               merchant(),
 
+              Divider(
+                color: Colors.grey,
+                height: 10,
+                thickness: 1,
+              ),
+
+              SizedBox(height: 25,)
 
             ],
           ),
@@ -292,17 +298,71 @@ class _merchant_search_resultsState extends State<merchant_search_results> {
             ),
           ),
 
-          Padding(
-            padding: const EdgeInsets.only(bottom: 10.0, top: 10),
-            child: Container(
-              color: Colors.grey,
+          Container(
               height: 37,
-            ),
-          ),
+              child: fivestar1()),
+          // Padding(
+          //   padding: const EdgeInsets.only(bottom: 10.0, top: 10),
+          //   child: Container(
+          //     color: Colors.grey,
+          //     height: 37,
+          //   ),
+          // ),
 
         ],
       ),
     );
   }
 
+}
+
+
+
+class fivestar1 extends StatefulWidget {
+  const fivestar1({Key? key}) : super(key: key);
+  @override
+  _fivestar1State createState() => _fivestar1State();
+}
+class _fivestar1State extends State {
+  double? _rating;
+  IconData? _selectedIcon;
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Builder(
+        builder: (context) => Scaffold(
+          backgroundColor: Colors.white,
+          body: Center(
+            child: Row(
+              children: [
+                Container(
+                  color: Colors.white,
+                  // padding: const EdgeInsets.symmetric(vertical: 200),
+                  child: RatingBar.builder(
+                    initialRating: _rating ?? 0.0,
+                    minRating: 1,
+                    direction: Axis.horizontal,
+                    allowHalfRating: false,
+                    itemCount: 5,
+                    itemSize: 23,
+                    itemPadding: const EdgeInsets.symmetric(horizontal: 1),
+                    itemBuilder: (context, _) => Icon(
+                      _selectedIcon ?? Icons.star,
+                      color: Colors.amber,
+                    ),
+                    onRatingUpdate: (rating) {
+                      _rating = rating;
+                      setState(() {});
+                    },
+                  ),
+                ),
+                Text("4.4 (280)", style: TextStyle(fontWeight: FontWeight.w500,fontSize: 17),)
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }

@@ -51,31 +51,33 @@ class SecondScreen extends StatelessWidget {
       selectedArray = items3;
     }
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(_getAppBarTitle()),
-      ),
-      body: ListView.builder(
-        itemCount: selectedArray.length,
-        itemBuilder: (BuildContext context, int index) {
-          return ListTile(
-            title: Column(
-              children: [
-                Row(
-                  children: [
-                    Icon(Icons.point_of_sale),
-                    SizedBox(width: 20,),
-                    Text(selectedArray[index]),
-                  ],
-                ),
-                const Divider(
-                  color: Colors.red,
-                ),
-              ],
-            ),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(_getAppBarTitle()),
+        ),
+        body: ListView.builder(
+          itemCount: selectedArray.length,
+          itemBuilder: (BuildContext context, int index) {
+            return ListTile(
+              title: Column(
+                children: [
+                  Row(
+                    children: [
+                      Icon(Icons.point_of_sale),
+                      SizedBox(width: 20,),
+                      Text(selectedArray[index]),
+                    ],
+                  ),
+                  const Divider(
+                    color: Colors.red,
+                  ),
+                ],
+              ),
 
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

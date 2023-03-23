@@ -36,7 +36,7 @@ class _ChipsScreenState extends State<ChipsScreen> {
     "Repair & Services",
     "Baby & Kids ",
     "Broadband",
-    "Home Seervices",
+    "Home Services",
     "Doctor",
     "Travel",
     "Real Estate",

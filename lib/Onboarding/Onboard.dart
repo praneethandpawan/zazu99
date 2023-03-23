@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import '../Pages/Actual_Pages/Home_Page/Merchant Screens/merchant_details.dart';
 import '../Pages/Testing.dart';
 import '../Pages/User_Auth/user_login.dart';
 
@@ -180,13 +181,13 @@ class _User_Merchant_SelectState extends State<User_Merchant_Select> {
               height: 50,
             ),
             GestureDetector(
-              onTap: () {},
-              // {
-              //   Navigator.push(
-              //     context,
-              //     MaterialPageRoute(builder: (context) => fivestar()),
-              //   );
-              // },
+              onTap: ()
+              {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => merchant_details()),
+                );
+              },
               child: Container(
                 // color: Colors.blue,
                 width: MediaQuery.of(context).size.width * 8,
